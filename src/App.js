@@ -45,17 +45,14 @@ function SongCard() {
   );
 }
 
-function OtherCard() {
-  return (
-    <Card style={{ width: "30vw"}}>
-      <h1>
-        Other Page!
-      </h1>
-      <p>
-        Howdy
-      </p>
-    </Card>
-  );
+function BasicFlower() {
+
+return (
+  <Card style={{ width: "30vw"}}>
+    <p> hi riley </p>
+  </Card>
+);
+
 }
 
 function App() {
@@ -68,8 +65,8 @@ function App() {
             component={SongCard}
           />
           <Route 
-            exact path={"/other"}
-            component={OtherCard}
+            exact path={"/riley"}
+            component={BasicFlower}
           />
         </Switch>
       </Router>
