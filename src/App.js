@@ -13,7 +13,7 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 // Website imports for classes you made
 import { Card } from "app/containers";
 
-function SampleCard() {
+function SongCard() {
 
     // ** we added
     
@@ -31,7 +31,7 @@ function SampleCard() {
         }
       }
     ).then(function(response){
-        let map_names = response.data.items.map(x => x.name)
+        let map_names = response.data.items.map(x => x.id)
         console.log(map_names)
         setData(map_names);
       }
@@ -65,7 +65,7 @@ function App() {
         <Switch>
           <Route 
             exact path={"/"}
-            component={SampleCard}
+            component={SongCard}
           />
           <Route 
             exact path={"/other"}
