@@ -20,7 +20,7 @@ function SampleCard() {
     const [data, setData] = useState(null);
 
     useEffect(()=>{
-      var token = "BQDiEM-kAECnpMaPYpKzmViXOdBxmdWzCE7qutuqHu-S64v82R5Ey8bxBn9drx3mf-SHoyDdrUfayhcqfCifNtLMCgEybI5vGLSVlvW5UlVgJmpYXo8mC0cv05YOVOViAieEqvHSqkNot5vb8fES";
+      var token = "BQAPXC3x0Z1PWE3yYRZ9nUnG8PFv7zexMDlTCMYu3O9VvoNxZR_btztnaS7akIoFpFe5f_ZL6Z4m2HyX1szMC1U1BNti4ToXwe_hyvnkULoomtAUwEswYB5nr85Khro5wdRWZeUQcHZanSMTVO17";
 
     axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=1&offset=1", 
       {
@@ -31,8 +31,9 @@ function SampleCard() {
         }
       }
     ).then(function(response){
-        console.log(response.data.items)
-        setData(response.data.items);
+        let map_names = response.data.items.map(x => x.name)
+        console.log(map_names)
+        setData(map_names);
       }
     );
     }, [])
