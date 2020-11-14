@@ -5,7 +5,7 @@ import "globals/hack-styles.scss";
 
 // ** we added
 import axios from "axios";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 // Installed dependency imports
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
@@ -19,8 +19,9 @@ function SampleCard() {
     
     const [data, setData] = useState(null);
 
-    var token = "BQAkbZMbEkp7uH86SRuTK90-3MRK1IdgquaV4aXme04mwh7aFOMVbeyE67Y2q6au-C4OWMXuJ_qpMVyrqAFhQkcq0SZA7N0yIm0UbU7QShPgI5fbsMcqdPR16kWlPvYfI-8tdu0jwGo3u1jdLtVs";
-    
+    useEffect(()=>{
+      var token = "BQDiEM-kAECnpMaPYpKzmViXOdBxmdWzCE7qutuqHu-S64v82R5Ey8bxBn9drx3mf-SHoyDdrUfayhcqfCifNtLMCgEybI5vGLSVlvW5UlVgJmpYXo8mC0cv05YOVOViAieEqvHSqkNot5vb8fES";
+
     axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=1&offset=1", 
       {
         headers: {
@@ -30,10 +31,11 @@ function SampleCard() {
         }
       }
     ).then(function(response){
-        //console.log(response.data)
-        setData(response.data);
+        console.log(response.data.items)
+        setData(response.data.items);
       }
     );
+    }, [])
 
   return (
     <Card style={{ width: "30vw"}}>
