@@ -11,18 +11,34 @@ import {useState, useEffect} from "react";
 
 // Website imports for classes you made
 import { Card } from "app/containers";
+import { Flower } from "app/containers";
 
 // added by lee
 import { Garden } from "app/containers";
 
+const token = "BQA9bOV-zLKvgPCvQHC4F1fcSZbh2fpwEp3Ewtyla2Us47feE7wkSmNpXqGZjHuu045S7VIV9zKbCpHJ1vS2hzHjoMZjTvXiZh6lvIA0ZhcB3jIb6Ow2iZkhs4KlRioaDTC4Zc_k8J0TLhgGiHYD"
 
 function SongCard() {
 
-    const [data, setData] = useState(null);
+    // ** function to find 10 songs and return it as an array
+    
+    const [songName, setData] = useState(null);
 
-    useEffect(()=>{
-      var token = "BQAPXC3x0Z1PWE3yYRZ9nUnG8PFv7zexMDlTCMYu3O9VvoNxZR_btztnaS7akIoFpFe5f_ZL6Z4m2HyX1szMC1U1BNti4ToXwe_hyvnkULoomtAUwEswYB5nr85Khro5wdRWZeUQcHZanSMTVO17";
+    useEffect( ()=>{
+      async function fetchData(){
+      let TopSongsAndfeatures = await getTopSongsAndFeatures()
+      setData(TopSongsAndfeatures)}
+      fetchData()
+      }
+    , [] )
 
+  return (
+    <Card style={{ width: "30vw"}}>
+      <p> {songName!=null ? JSON.stringify(songName) : null} </p>
+    </Card>
+  );
+}
+/*
       axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=1&offset=1", 
         {
           headers: {
@@ -46,15 +62,7 @@ function SongCard() {
     );
 }
 
-function BasicFlower() {
-
-  return (
-    <Card style={{ width: "30vw"}}>
-      <p> hi riley </p>
-    </Card>
-  );
-
-}
+*/
 
 function SongGarden() {
   var characteristics = [["red", 60],["blue", 80]];
@@ -71,6 +79,51 @@ function SongGarden() {
   );
 }
 
+async function getSongFeatures(id){
+  let response = await axios.get("https://api.spotify.com/v1/audio-features/" + id, 
+      {
+        headers: {
+            Accept: "application/json", 
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token
+        }
+      }
+    )
+  return (response.data)
+}
+
+async function getTopSongsAndFeatures() {
+
+  // ** function to get mood and tempo for each song
+
+ let response = await axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=1&offset=1", 
+    {
+      headers: {
+          Accept: "application/json", 
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token
+      }
+    }
+  )
+  let FeatureArray = []
+  for await(let x of response.data.items){
+    let songFeatures = await getSongFeatures(x.id);
+    console.log(songFeatures)
+    FeatureArray.push({id: x.id,
+      name: x.name,
+      features: songFeatures})
+  }
+  return FeatureArray
+}
+
+
+// Riley's Playground
+function BasicFlower() {
+  return (
+    <div class="circle"></div>
+  );
+}
+
 function App() {
   return (
     <div className="app flex-center fill-view">
@@ -82,7 +135,7 @@ function App() {
           />
           <Route 
             exact path={"/riley"}
-            component={BasicFlower}
+            component={Flower}
           />
           <Route 
             exact path={"/lee"}
