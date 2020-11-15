@@ -12,12 +12,21 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 // Website imports for classes you made
 import { Card } from "app/containers";
+import { Flower } from "app/containers";
 
 const token = "BQCrb0lEfby8kupiV7Upl8wTB3WUChWZSmUEZWu4ZzQAV08Kl48220O0gSU8z19dvpGnOagF-LO8r4Tx5swsfJHGBDIlFIkX_f4jwJrUoHFe2UYQPvLaplo48tUSUa750JfJrTSnW1zj6xY5MA"
 
 function SongCard() {
 
+<<<<<<< HEAD
     // ** function to find 10 songs and return it as an array
+=======
+    // Calling Basic Flower
+
+    BasicFlower()
+
+    // ** we added
+>>>>>>> e7def9832a173f142830df8a3b3ab951071b1879
     
     const [songName, setData] = useState(null);
 
@@ -74,6 +83,7 @@ async function getTopSongsAndFeatures() {
   return FeatureArray
 }
 
+<<<<<<< HEAD
  function BasicFlower() {
 
  return (
@@ -82,6 +92,13 @@ async function getTopSongsAndFeatures() {
    </Card>
 );
 
+=======
+// Riley's Playground
+function BasicFlower() {
+  return (
+    <div class="circle"></div>
+  );
+>>>>>>> e7def9832a173f142830df8a3b3ab951071b1879
 }
 
 function App() {
@@ -95,7 +112,7 @@ function App() {
           />
           <Route 
             exact path={"/riley"}
-            component={BasicFlower}
+            component={Flower}
           />
         </Switch>
       </Router>
