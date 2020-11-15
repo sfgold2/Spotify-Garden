@@ -1,4 +1,4 @@
-//  TEAM RILEE (Riley & Lee :)
+//  TEAM RILEE (Riley & Lee :) )
 //  otherwise known as fifteam (team 15)
 
 // template used: Zothacks UCI 2020 React Template 
@@ -42,7 +42,7 @@ async function getSongFeatures(id, token){
 // create a list with each song's mood/tempo data
 async function getTopSongsAndFeatures(token) {
 
-  let response = await axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=15&offset=0", 
+  let response = await axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=15&offset=0", 
     {
       headers: {
           Accept: "application/json", 
@@ -74,7 +74,7 @@ function SongCard({token}) {
 
   return (
     <div className="flex-center">
-      <Card className="flex-center"> <div> <b> Color : </b>Energy Level <br></br> <br></br> <b>Size:</b> BPM </div></Card>
+      <Card > <div> <b> Color : </b>Energy Level <br></br> <br></br> <b>Size:</b> BPM </div></Card>
       <SongGarden characteristics = {songData}/>
     </div>
   );
@@ -91,15 +91,46 @@ function SongGarden({characteristics}) {
     for (var i = 0; i < characteristics.length; i++){ 
       var tempo = characteristics[i][1];
       var energy = characteristics[i][2];
-      var color = "blue";
-      var size = "1"
-      var pos = (120*i).toString();
-      if (energy <= .5){
-        color = "red";
+      var pos = (100*i).toString();
+
+      var color = "#554971";
+      var size = "1";
+
+      if (energy < .3){
+        color = "#554971";
       }
-      if (tempo < 100){
-        size = "0.5"
+      else if (energy < .4){
+        color = "#839D9a";
       }
+      else if (energy < .5){
+        color = "#BF211E";
+      }
+      else if (energy < .6){
+        color = "#E53d00";
+      }
+      else if (energy < .8){
+        color = "#e76b74";
+      }
+      else {
+        color = "#E9CE2C";
+      }
+
+      if (tempo < 90){
+        size = ".4";
+      }
+      else if (tempo < 100){
+        size = ".5";
+      }
+      else if (tempo < 110){
+        size = ".8";
+      }
+      else if (tempo < 120){
+        size = ".9";
+      }
+      else {
+        size = "1";
+      }
+
       listItems.push(<Flower key={i} className="flex-split" style = {{backgroundColor: color}} position = {{left: pos+"px", transform: "scale(" + size + ")"}}> </Flower>);
 
     }
