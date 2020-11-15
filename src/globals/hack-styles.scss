@@ -1,7 +1,10 @@
 // Helper CSS classes for use around the app
 
-Link {
-  text-decoration: none;
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
 }
 
 .flex-center {

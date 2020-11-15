@@ -41,7 +41,7 @@ async function getSongFeatures(id, token){
 // create a list of each song's mood/tempo data
 async function getTopSongsAndFeatures(token) {
 
-  let response = await axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=5&offset=1", 
+  let response = await axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=15&offset=0", 
     {
       headers: {
           Accept: "application/json", 
@@ -95,12 +95,24 @@ function SongGarden({characteristics}) {
   var listItems = [];
   if (characteristics != null){
     for (var i = 0; i < characteristics.length; i++){ 
-      listItems.push(<Flower key={i}> {characteristics[i][0]}  </Flower>);
+      var tempo = characteristics[i][1];
+      var energy = characteristics[i][2];
+      var color = "blue";
+      var size = "1"
+      var pos = (120*i).toString();
+      if (energy <= .5){
+        color = "red";
+      }
+      if (tempo < 100){
+        size = "0.5"
+      }
+      listItems.push(<Flower key={i} style = {{backgroundColor: color}} position = {{left: pos+"px", transform: "scale(" + size + ")"}}> </Flower>);
+
     }
   }
 
   return (
-    <div >
+    <div className="wrapper">
         {listItems}
     </div>
   );
