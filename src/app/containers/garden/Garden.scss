@@ -1,0 +1,9 @@
+@import "globals/hack-variables.scss";
+
+.Garden {
+  background-color: $white;
+  
+  & > div {
+    margin: $medium-spacing;
+  }
+}

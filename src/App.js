@@ -2,57 +2,73 @@
 import React from "react";
 import "./App.scss";
 import "globals/hack-styles.scss";
-
-// ** we added
-import axios from "axios";
-import {useState, useEffect} from "react";
-
 // Installed dependency imports
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+
+// added by lee
+import axios from "axios";
+import {useState, useEffect} from "react";
 
 // Website imports for classes you made
 import { Card } from "app/containers";
 
+// added by lee
+import { Garden } from "app/containers";
+
+
 function SongCard() {
 
-    // ** we added
-    
     const [data, setData] = useState(null);
 
     useEffect(()=>{
       var token = "BQAPXC3x0Z1PWE3yYRZ9nUnG8PFv7zexMDlTCMYu3O9VvoNxZR_btztnaS7akIoFpFe5f_ZL6Z4m2HyX1szMC1U1BNti4ToXwe_hyvnkULoomtAUwEswYB5nr85Khro5wdRWZeUQcHZanSMTVO17";
 
-    axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=1&offset=1", 
-      {
-        headers: {
-            Accept: "application/json", 
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token
+      axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=1&offset=1", 
+        {
+          headers: {
+              Accept: "application/json", 
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token
+          }
         }
-      }
-    ).then(function(response){
-        let map_names = response.data.items.map(x => x.id)
-        console.log(map_names)
-        setData(map_names);
-      }
-    );
+      ).then(function(response){
+          let map_names = response.data.items.map(x => x.id)
+          console.log(map_names)
+          setData(map_names);
+        }
+      );
     }, [])
 
-  return (
-    <Card style={{ width: "30vw"}}>
-      <p> {data!=null ? JSON.stringify(data) : null} </p>
-    </Card>
-  );
+    return (
+      <Card style={{ width: "30vw"}}>
+        <p> {data!=null ? JSON.stringify(data) : null} </p>
+      </Card>
+    );
 }
 
 function BasicFlower() {
 
-return (
-  <Card style={{ width: "30vw"}}>
-    <p> hi riley </p>
-  </Card>
-);
+  return (
+    <Card style={{ width: "30vw"}}>
+      <p> hi riley </p>
+    </Card>
+  );
 
+}
+
+function SongGarden() {
+  var characteristics = [["red", 60],["blue", 80]];
+  var listItems = [];
+  
+  for (var i = 0; i < characteristics.length; i++){
+    listItems.push(<p class={characteristics[i][0]}> hi </p>);
+  }
+
+  return (
+    <div>
+        {listItems}
+    </div>
+  );
 }
 
 function App() {
@@ -67,6 +83,10 @@ function App() {
           <Route 
             exact path={"/riley"}
             component={BasicFlower}
+          />
+          <Route 
+            exact path={"/lee"}
+            component={SongGarden}
           />
         </Switch>
       </Router>
