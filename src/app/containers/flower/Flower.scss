@@ -1,16 +1,115 @@
-// for reference
-
 @import "globals/hack-variables.scss";
 
 
-.circle {
-  background: red;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
+:root {
+--circle_size: 100px;
+--oval_size: 125px;
 }
 
-.oval {
-  background: red;
-  // work on this
+.flower {
+  position: absolute;
+}
+
+.circle {
+  z-index: 10;
+  background: white;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  height: var(--circle_size);
+  width: var(--circle_size);
+  border-radius: 50%;
+}
+
+.ovaltopright {
+  background: green;
+  position: relative;
+  left: 50px;
+  top: -150px;
+  height: var(--oval_size);
+  width: var(--circle_size);
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+.ovaltopleft {
+  background: green;
+  position: relative;
+  left: -50px;
+  top: -275px;
+  height: var(--oval_size);
+  width: var(--circle_size);
+  border-radius: 50%;
+  transform: rotate(-45deg);
+}
+
+.ovalbottomleft {
+  background: green;
+  position: relative;
+  left: -50px;
+  top: -450px;
+  height: var(--oval_size);
+  width: var(--circle_size);
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+.ovalbottomright {
+  background: green;
+  position: relative;
+  left: 50px;
+  top: -325px;
+  height: var(--oval_size);
+  width: var(--circle_size);
+  border-radius: 50%;
+  transform: rotate(-45deg);
+}
+
+.ovalbottom {
+  background: green;
+  position: relative;
+  left: 0px;
+  top: -650px;
+  height: var(--oval_size);
+  width: var(--circle_size);
+  border-radius: 50%
+}
+
+.ovaltop {
+  background: green;
+  position: relative;
+  left: 0px;
+  top: -700px;
+  height: var(--oval_size);
+  width: var(--circle_size);
+  border-radius: 50%
+}
+
+.ovalleft {
+  background: green;
+  position: relative;
+  left: -100px;
+  top: -950px;
+  height: var(--circle_size);
+  width: var(--oval_size);
+  border-radius: 50%;
+}
+
+.ovalright {
+  background: green;
+  position: relative;
+  left: 75px;
+  top: -850px;
+  height: var(--circle_size);
+  width: var(--oval_size);
+  border-radius: 50%
+}
+
+.rectangle {
+  background: brown;
+  position: relative;
+  left: 40px;
+  top: -850px;
+  height: 100px;
+  width: 20px;
 }

@@ -84,11 +84,8 @@ function SongCard({token}) {
 
 // ============ BUILD FLOWERS ================
 
-// Riley's Playground
-function BasicFlower() {
-  return (
-    <div class="circle"></div>
-  );
+function drawFlower() {
+  //
 }
 
 // construct flowers out of song data
@@ -157,6 +154,11 @@ function App() {
           <Route exact path={"/garden"}> 
             <SongCard token = {token}> </SongCard>
           </Route>          
+          
+          {/* </Switch><Flower position={{left: "100px"}} style={{backgroundColor: "red"}}/> */}
+          {/* //</Router><Flower position={{left: "300px"}} style={{backgroundColor: "green"}}/> */}
+          {/* //<Flower position={{left: "500px"}} style={{backgroundColor: "blue"}}/> */}
+          
         </Switch>
       </Router>
     </div>
