@@ -98,16 +98,45 @@ function SongGarden({characteristics}) {
       var tempo = characteristics[i][1];
       var energy = characteristics[i][2];
       var color = "blue";
-      var size = "1"
+      var size = "1";
       var pos = (120*i).toString();
       if (energy <= .5){
         color = "red";
       }
-      if (tempo < 100){
-        size = "0.5"
-      }
-      listItems.push(<Flower key={i} style = {{backgroundColor: color}} position = {{left: pos+"px", transform: "scale(" + size + ")"}}> </Flower>);
 
+      if (tempo < 80){
+        color = "rgb(.625(tempo), 0, 0)";
+      }
+      else if (tempo < 90){
+        color = "rgb(16.6(tempo-80)+51, 0, 0)";
+      }
+      else if (tempo < 100){
+        color = 16.6(tempo-90)+217;
+        if (color > 255) {
+          color = "rgb(0, color - 255, 0)";
+        }
+        else {
+          color = "rgb(color, 0, 0)";
+        }
+      }
+      else if (tempo < 110){
+        color = 16.6(tempo-100)+384;
+        if (color > 510) {
+          color = "rgb(0, 0, color - 255)";
+        }
+        else {
+          color = "rgb(0, color, 0)";
+        }
+      }
+      else if (tempo < 120){
+        color = "rgb(0, 0, 16.6(tempo-110)+550)";
+      }
+      else {
+        color = "rgb(765)";
+      }
+
+      
+      listItems.push(<Flower key={i} style = {{backgroundColor: color}} position = {{left: pos+"px", transform: "scale(" + size + ")"}}> </Flower>);
     }
   }
 
