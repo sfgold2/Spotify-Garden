@@ -1,7 +1,6 @@
 import React from "react";
 import './Flower.scss';
 
-
 function Flower(props) {
   return (
     <div >
