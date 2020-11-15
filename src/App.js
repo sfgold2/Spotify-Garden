@@ -117,12 +117,10 @@ async function getTopSongsAndFeatures() {
 }
 
 
-// Riley's Playground
-function BasicFlower() {
-  return (
-    <div class="circle"></div>
-  );
+function drawFlower() {
+  //
 }
+
 
 function App() {
   return (
@@ -135,8 +133,15 @@ function App() {
           />
           <Route 
             exact path={"/riley"}
-            component={Flower}
-          />
+
+          > 
+          {/*for loop here*/}
+          <div>
+          <Flower position={{left: "100px"}} style={{backgroundColor: "red"}}/>
+          <Flower position={{left: "300px"}} style={{backgroundColor: "green"}}/>
+          <Flower position={{left: "500px"}} style={{backgroundColor: "blue"}}/>
+          </div>
+          </Route>
           <Route 
             exact path={"/lee"}
             component={SongGarden}
