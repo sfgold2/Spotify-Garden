@@ -12,8 +12,13 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 // Website imports for classes you made
 import { Card } from "app/containers";
+import { Flower } from "app/containers";
 
 function SongCard() {
+
+    // Calling Basic Flower
+
+    BasicFlower()
 
     // ** we added
     
@@ -45,14 +50,11 @@ function SongCard() {
   );
 }
 
+// Riley's Playground
 function BasicFlower() {
-
-return (
-  <Card style={{ width: "30vw"}}>
-    <p> hi riley </p>
-  </Card>
-);
-
+  return (
+    <div class="circle"></div>
+  );
 }
 
 function App() {
@@ -66,7 +68,7 @@ function App() {
           />
           <Route 
             exact path={"/riley"}
-            component={BasicFlower}
+            component={Flower}
           />
         </Switch>
       </Router>
