@@ -1,36 +1,10 @@
-# HackUCI's Best Practices React Template
+# Spotify React
 
-This is HackUCI's updated Create React App template, including functionality for SASS, directory organization, and helpful global files to ensure that your ReactJS repository is as clean as the Anteater Learning Pavilion floor.
+This is a project I created with a team for ZotHacks.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
-
-In the project directory, you can run:
-
-#### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-#### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-#### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-#### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Spotify React is a web application that displays characteristics of songs from a Spotify user's listening history as a garden of multi-colored flowers. We created the application with React.js and Node.js, as well as Postman to fetch the Spotify API.
 
 ## Screenshots
 
