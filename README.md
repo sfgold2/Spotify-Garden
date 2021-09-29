@@ -9,5 +9,5 @@ Spotify React is a web application that displays characteristics of songs from a
 ## Screenshots
 
 #### Running Project
-<img width="1668" alt="Screen Shot 2020-10-05 at 2 33 55 PM" src="https://user-images.githubusercontent.com/13127625/95134507-d7237700-0717-11eb-91b9-fd6d5805fcc0.png">
-
+<img width="1668" alt="Homepage" src="https://user-images.githubusercontent.com/73331313/135220358-39478463-2966-4e71-b688-16427389fe19.png">
+<img width="1668" alt="Garden" src="https://user-images.githubusercontent.com/73331313/135220374-300a2b56-6d82-4031-bafa-9804098296a8.png">
